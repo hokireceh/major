@@ -1,7 +1,7 @@
 import requests
 import random
 
-from smart_airdrop_claimer import base
+from hokireceh-claimer import base
 from core.headers import headers
 
 
