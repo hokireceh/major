@@ -1,6 +1,6 @@
 import requests
 
-from hokireceh_claimer import base
+from smart-airdrop-claimer import base
 from core.headers import headers
 
 
