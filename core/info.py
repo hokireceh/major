@@ -1,6 +1,6 @@
 import requests
 
-from smart-airdrop-claimer import base
+from smart_airdrop_claimer import base
 from core.headers import headers
 
 
