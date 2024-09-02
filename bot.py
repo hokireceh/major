@@ -2,7 +2,7 @@ import sys
 
 sys.dont_write_bytecode = True
 
-from hokireceh-claimer import base
+from hokireceh_claimer import base
 from core.token import get_token
 from core.info import get_balance
 from core.task import process_check_in, process_do_task
