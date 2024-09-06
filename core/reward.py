@@ -25,7 +25,7 @@ def hold_coin(token, coins, proxies=None):
 
 
 def spin(token, proxies=None):
-    url = "https://major.glados.app/api/roulette"
+    url = "https://major.glados.app/api/roulette/"
 
     try:
         response = requests.post(
