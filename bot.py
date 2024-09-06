@@ -6,7 +6,7 @@ from smart_airdrop_claimer import base
 from core.token import get_token
 from core.info import get_balance
 from core.task import process_check_in, process_do_task
-from core.reward import process_hold_coin, process_spin
+from core.reward import process_hold_coin, process_spin, process_swipe_coin
 
 import time
 
@@ -38,6 +38,10 @@ class Major:
 
         self.auto_spin = base.get_config(
             config_file=self.config_file, config_name="auto-spin"
+        )
+
+        self.auto_play_swipe_coin = base.get_config(
+            config_file=self.config_file, config_name="auto-play-swipe-coin"
         )
 
     def main(self):
@@ -89,6 +93,17 @@ class Major:
                             process_spin(token=token)
                         else:
                             base.log(f"{base.yellow}Auto Spin: {base.red}OFF")
+
+                        # Swipe Coin
+                        if self.auto_play_swipe_coin:
+                            base.log(
+                                f"{base.yellow}Auto Play Swipe Coin: {base.green}ON"
+                            )
+                            process_swipe_coin(token=token)
+                        else:
+                            base.log(
+                                f"{base.yellow}Auto Play Swipe Coin: {base.red}OFF"
+                            )
 
                         get_balance(token=token)
 
