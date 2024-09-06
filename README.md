@@ -20,6 +20,10 @@ Join our Telegram group to stay updated and get instructions on how to use this 
 
 ## 🚀 Run File
 
+```
+git clone https://github.com/hokireceh/major.git && cd major && python -m pip install -r requirements.txt
+```
+
 | Run with Proxy                   | Run without Proxy   |
 | -------------------------------- | ------------------- |
 | `bot-proxy.py` `data-proxy.json` | `bot.py` `data.txt` |
