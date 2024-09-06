@@ -1,3 +1,4 @@
+
 import requests
 import random
 
@@ -41,6 +42,25 @@ def spin(token, proxies=None):
         return None
 
 
+def swipe_coin(token, coins, proxies=None):
+    url = "https://major.glados.app/api/swipe_coin/"
+    payload = {"coins": coins}
+
+    try:
+        response = requests.post(
+            url=url,
+            headers=headers(token=token),
+            json=payload,
+            proxies=proxies,
+            timeout=20,
+        )
+        data = response.json()
+        status = data["success"]
+        return status
+    except:
+        return None
+
+
 def process_hold_coin(token, proxies=None):
     coins = random.randint(800, 900)
     hold_coin_status = hold_coin(token=token, coins=coins, proxies=proxies)
@@ -59,4 +79,15 @@ def process_spin(token, proxies=None):
     else:
         base.log(
             f"{base.white}Auto Spin: {base.red}Not time to spin, invite more friends"
+        )
+
+
+def process_swipe_coin(token, proxies=None):
+    coins = random.randint(1000, 1200)
+    swipe_coin_status = swipe_coin(token=token, coins=coins, proxies=proxies)
+    if swipe_coin_status:
+        base.log(f"{base.white}Auto Play Swipe Coin: {base.green}Success")
+    else:
+        base.log(
+            f"{base.white}Auto Play Swipe Coin: {base.red}Not time to play, invite more friends"
         )
